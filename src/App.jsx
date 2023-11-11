@@ -9,9 +9,9 @@ const numberWithCommas = (x) => {
 }
 
 const App = () => {
-  const percent = 1.25
-  const parkingPrice = 4000
-  const mainColor = '#FF9001'
+  const percent = 1.40
+  const parkingPrice = 3500
+  const mainColor = '#9b59b6'
   const image = 'https://freepngimg.com/thumb/car/4-2-car-png-hd.png'
   const darkenColor = Color(mainColor).darken(0.5)
 
