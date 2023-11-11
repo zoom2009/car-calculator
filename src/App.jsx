@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { X } from '@phosphor-icons/react'
 import { twMerge } from 'tailwind-merge'
 import CurrencyInput from 'react-currency-input-field'
@@ -9,10 +9,10 @@ const numberWithCommas = (x) => {
 }
 
 const App = () => {
-  const percent = 1.40
-  const parkingPrice = 3500
-  const mainColor = '#9b59b6'
-  const image = 'https://freepngimg.com/thumb/car/4-2-car-png-hd.png'
+  const [percent, setPercent] = useState(0)
+  const [parkingPrice, setParkingPrice] = useState(0)
+  const [mainColor, setMainColor] = useState('#fff')
+  const [image, setImage] = useState('')
   const darkenColor = Color(mainColor).darken(0.5)
 
   const [price, setPrice] = useState('')
@@ -23,8 +23,19 @@ const App = () => {
     } else {
       setPrice('')
     }
-    console.log('name:', name)
   }
+
+  useEffect(() => {
+    const percent = document.getElementById('car-calculator').getAttribute('d-percent')
+    const parking = document.getElementById('car-calculator').getAttribute('d-parking')
+    const color = document.getElementById('car-calculator').getAttribute('d-color')
+    const image = document.getElementById('car-calculator').getAttribute('d-image')
+
+    setPercent(+percent)
+    setParkingPrice(+parking)
+    setMainColor(color)
+    setImage(image)
+  }, [])
 
   return (
     <div style={{ borderRadius: 100 }} className="w-full flex flex-1 justify-center items-center max-w-[900px] h-[450px]">
