@@ -4,6 +4,8 @@ import { twMerge } from 'tailwind-merge'
 import CurrencyInput from 'react-currency-input-field'
 import Color from 'color'
 
+const C_ID = 'car-calculator'
+
 const numberWithCommas = (x) => {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 }
@@ -26,10 +28,10 @@ const CarCalculator = () => {
   }
 
   useEffect(() => {
-    const percent = document.getElementById('car-calculator').getAttribute('d-percent')
-    const parking = document.getElementById('car-calculator').getAttribute('d-parking')
-    const color = document.getElementById('car-calculator').getAttribute('d-color')
-    const image = document.getElementById('car-calculator').getAttribute('d-image')
+    const percent = document.querySelector(`[d-id="${C_ID}"]`).getAttribute('d-percent')
+    const parking = document.querySelector(`[d-id="${C_ID}"]`).getAttribute('d-parking')
+    const color = document.querySelector(`[d-id="${C_ID}"]`).getAttribute('d-color')
+    const image = document.querySelector(`[d-id="${C_ID}"]`).getAttribute('d-image')
 
     setPercent(+percent)
     setParkingPrice(+parking)
